@@ -25,8 +25,8 @@ public class OrderService {
 	}
 	
 	@Transactional
-	public void getOrderAndAddItems() { 
-		Order find = entityManager.find(Order.class, 5L);
+	public void getOrderAndAddItems(Long orderId) { 
+		Order find = entityManager.find(Order.class, orderId);
 		entityManager.merge(find);
 		System.out.println("Order found is " + find);
 	}
@@ -37,6 +37,11 @@ public class OrderService {
 		Order order = session.load(Order.class, orderId);
 		oi.setOrder(order);
 		session.save(oi);
+	}
+	
+	@Transactional
+	public void saveOrder(Order order) {
+		entityManager.persist(order);
 	}
 
 }

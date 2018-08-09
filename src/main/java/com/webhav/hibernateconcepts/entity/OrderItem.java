@@ -5,8 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="order_item")
 public class OrderItem {
 	
 	@Id
@@ -64,8 +66,7 @@ public class OrderItem {
 
 	@Override
 	public String toString() {
-		return "OrderItem [id=" + id + ", name=" + name + ", description=" + description + ", quantity=" + quantity
-				+ ", order=" + order + "]";
+		return "OrderItem [id=" + id + ", name=" + name + ", description=" + description + ", quantity=" + quantity + "]";
 	}
 	
 	
